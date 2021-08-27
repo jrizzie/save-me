@@ -1,0 +1,51 @@
+# hive.yaml
+# Elastalert rule to forward IDS alerts from Security Onion to a specified TheHive instance.
+#
+es_host: so-elasticsearch 
+es_port: 9200
+name: TheHive - New IDS Alert!
+type: frequency
+index: "*:logstash-ids*"
+num_events: 1
+timeframe:
+    minutes: 10
+buffer_time:
+    minutes: 10
+allow_buffer_time_overlap: true
+
+filter:
+- term:
+    event_type: "snort"
+
+alert: hivealerter
+
+hive_connection:
+  hive_host: http://thehive:9000
+  hive_port: 9000
+  hive_apikey: FQLK60PDRHcu2kPbY/6KEebeASdDCS84
+
+###########    ^^ Muy Importante ^^    ###########
+# hive_host: This is the clustername which I needed to find by using docker inspect on the hive docker container
+# hive_port: You need to specify port in the 'hive_host' field, shown above
+# hive_apikey: Get this by logging into the Hive web-interface --> users --> reveal API Key
+# *** Don't forget to also give alert creation permissions to the users for who's API key is in this file.
+###########    ^ ^ ^ ^ ^ ^ ^ ^ ^ ^     ###########
+
+hive_proxies:
+  http: ''
+  https: ''
+
+hive_alert_config:
+  title: '{rule[name]}'
+  type: 'external'
+  source: 'SecurityOnion'
+  description: '{match[message]}'
+  severity: 2
+  tags: ['elastalert, SecurityOnion']
+  tlp: 3
+  status: 'New'
+  follow: True
+
+hive_observable_data_mapping:
+  - ip: '{match[source_ip]}'
+  - ip: '{match[destination_ip]}'

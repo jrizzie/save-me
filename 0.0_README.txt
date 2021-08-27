@@ -1,0 +1,42 @@
+1. Using/viewing Security Onion
+
+- To see Security Onion web-interface, skip to  ======    DO STUFF   ======
+- If you would rather RDP, return to /jrizzie/home --> and review file #4
+- If you would rather use TeamViewer, you will still need to login via RDP, then run TeamViewer 'Applications'
+- The server (192.168.2.5) will run 24/7, however; I only run network capturing tools when needed/wanted and/or troubleshooting.
+
+*** I do not have enough storage space to keep collect 24/7.. maybe I need a gofundme campaign... lolz.
+-*- To start services:  sudo so-start
+-*- To stop services:   sudo so-stop
+For other commands... review the CH3ATSH33T on the Desktop 
+
+other services that require manual start:
+Moloch
+MISP
+Hive
+-*- to start all of these services, bash "All_Systems_Go" in the ~/directory.
+
+************************************
+For Windows Hosts --
+************************************
+open putty
+host name = 192.168.2.5
+(left side of config screen)  |  Category  -->  SSH  -->  Tunnels -->
+Source port:	8080
+Destination:	127.0.0..1:443
+[add]
+save config if you want... open
+login via creds provided via text
+[minimize putty]
+
+open web browser... Chrome?
+https://127.0.0.1:8080
+login using creds provided via text
+
+
+*************************************
+For Linux hosts --
+*************************************
+
+sudo su
+ssh -L 8080:127.0.0.1:443 jrizzie@192.168.1.5 -N -v -v
