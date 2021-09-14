@@ -129,35 +129,8 @@ echo '      ****   ***   ***   *   *'
 echo ''
 sleep 3
 ##########   end of flash   ##########
-clear
-sleep 1
-echo ' '
-echo ' '
-echo ' '
-echo '		 **		**	'
-echo '		 **             **      '
-echo ' '
-echo ' '
-echo '		 \		 /	'
-echo '		  \             /       '
-echo '		   \___________/        '
 sleep 4
-clear
-echo ' jk...  you know i love you babe.  <3  '
-sleep 1
-echo ' '
-echo ' '
-echo '        ____    ____'
-echo '       /    \  /    \'
-echo '       |     \/     |'
-echo '        \          /'
-echo '         \        /'
-echo '          \      /'
-echo '           \    /'
-echo '            \  /'
-echo '             \/'
-echo ' ' 
-sleep 4
+
 #############################################################################
 #                               just for fun                                #
 #############################################################################
